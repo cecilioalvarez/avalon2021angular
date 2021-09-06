@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Libro } from '../libro';
 
 @Component({
   selector: 'app-hola1',
@@ -7,11 +8,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Hola1Component implements OnInit {
 
-  nombre:string="Ruben";
+  nombre :string="Ruben";
+  contador :number = 0;
+  libro: Libro= {} as Libro;
 
-  constructor() { }
+  constructor() { 
+    this.libro.autor = "pepe"
+    this.libro.isbn = "1"
+    this.libro.titulo = "java"
+  }
 
   ngOnInit(): void {
+  }
+
+  incrementar(){
+    this.contador++;
+  }
+
+  decrementar(){
+    this.contador--;
   }
 
 }
