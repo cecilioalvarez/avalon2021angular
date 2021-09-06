@@ -28,4 +28,8 @@ export class Hola1Component implements OnInit {
   decrementar() {
     this.contador--;
   }
+  hePulsado (evento:Event) {
+    alert("has pulsado");
+    console.log(evento);
+  }
 }
