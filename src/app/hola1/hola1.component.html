@@ -1,1 +1,13 @@
 <p>hola desde Angular soy  francisco   {{nombre}}</p>
+<p>{{contador}}</p>
+<input type="button" value="+" (click)="incrementar()">
+<input type="button" value="-" (click)="decrementar()">
+<input type="button" value="pulsar" (click)="pulsar($event)"/>
+
+{{libro.isbn}}
+{{libro.autor}}
+{{libro.titulo}}
+<img [src]="paisaje"/>
+<input type="button" value="avanzar" (click)="avanza()"/>
+<input type="button" value="retroceder" (click)="retrocede()"/>
+
