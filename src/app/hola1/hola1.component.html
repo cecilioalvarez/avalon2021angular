@@ -2,3 +2,8 @@
 <p>{{contador}}</p>
 <input type="button" value="+" (click)="incrementar()">
 <input type="button" value="-" (click)="decrementar()">
+<input type="button" value="pulsar" (click)="pulsar($event)">
+
+<p>{{libro.isbn}} {{libro.titulo}} {{libro.autor}}</p>
+
+<img [src]="imagen" />
