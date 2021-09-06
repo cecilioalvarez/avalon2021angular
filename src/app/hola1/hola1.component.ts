@@ -8,10 +8,17 @@ import { Component, OnInit } from '@angular/core';
 export class Hola1Component implements OnInit {
 
   nombre:string="pedro"
+  contador:number=0;
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  incrementar() {
+    this.contador++;
+  }
+  decrementar() {
+    this.contador--;
+  }
 }
