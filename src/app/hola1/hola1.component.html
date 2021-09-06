@@ -4,7 +4,13 @@
 
 <input type="button" value="+" (click)="incrementar()">
 <input type="button" value="-" (click)="decrementar()">
+<input type="button" value="pulsar" (click)="hasPulsado($event)">
+<div>
+    <p>{{libro.isbn}}</p>
+    <p>{{libro.autor}}</p>
 
-{{libro.isbn}}
-{{libro.autor}}
-{{libro.titulo}}
+    <p>{{libro.titulo}}</p>
+</div>
+<div>
+    <img [src]="bmw">
+</div>

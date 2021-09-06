@@ -8,14 +8,14 @@ import { Libro } from '../libro';
 })
 export class Hola1Component implements OnInit {
 
-  nombre :string="Ruben";
-  contador :number = 0;
-  libro: Libro= {} as Libro;
+  nombre :string="Ruben"
+  contador :number = 0
+  libro: Libro
+  bmw: string
 
   constructor() { 
-    this.libro.autor = "pepe"
-    this.libro.isbn = "1"
-    this.libro.titulo = "java"
+    this.libro = new Libro("1","pepe","java")
+    this.bmw="assets/e30.jpg"
   }
 
   ngOnInit(): void {
@@ -27,6 +27,11 @@ export class Hola1Component implements OnInit {
 
   decrementar(){
     this.contador--;
+  }
+
+  hasPulsado(evento: Event){
+    alert("Has pulsado");
+    console.log(evento);
   }
 
 }
