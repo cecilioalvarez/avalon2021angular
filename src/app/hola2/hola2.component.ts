@@ -18,12 +18,15 @@ export class Hola2Component implements OnInit {
   }
 
   avanza() {
+
     this.contador++
+    if (this.contador>2) this.contador=0
     this.paisaje = "assets/" + this.listaImagenes[this.contador];
   }
   retrocede() {
 
     this.contador--
+    if (this.contador<0) this.contador=0
     this.paisaje = "assets/" + this.listaImagenes[this.contador];
   }
 }
