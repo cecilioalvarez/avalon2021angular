@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Libro } from '../libro';
 
 @Component({
   selector: 'app-hola3',
@@ -7,7 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Hola3Component implements OnInit {
 
-  constructor() { }
+  listaLibros: Libro[] = []
+  constructor() {
+    this.listaLibros.push(new Libro("1", "java", "pepe"), 
+    new Libro("2", "net", "juan"), new Libro("3", "php", "ana"));
+
+
+
+  }
 
   ngOnInit(): void {
   }
