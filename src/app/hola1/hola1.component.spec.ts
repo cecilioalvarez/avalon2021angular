@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed} from '@angular/core/testing';
 
 import { Hola1Component } from './hola1.component';
 
@@ -23,3 +23,7 @@ describe('Hola1Component', () => {
     expect(component).toBeTruthy();
   });
 });
+function descranyibe(arg0: string, arg1: () => void) {
+  throw new Error('Function not implemented.');
+}
+
