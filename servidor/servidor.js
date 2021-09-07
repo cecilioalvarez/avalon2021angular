@@ -1,5 +1,7 @@
 const express = require('express')
+var cors = require("cors");
 const app = express()
+app.use(cors());
 const port = 8080
 let listalibros=[];
 listalibros.push({isbn:"1",titulo:"java",autor:"juan"});
