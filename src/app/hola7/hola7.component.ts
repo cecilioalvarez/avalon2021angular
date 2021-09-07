@@ -16,4 +16,7 @@ export class Hola7Component implements OnInit {
     this.listaLibros = this.servicio.buscarTodos();
   }
 
+  borrar(libro:Libro) {
+    this.servicio.borrarLibro(libro);
+  }
 }

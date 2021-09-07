@@ -10,10 +10,10 @@ export class LibrosService {
 
   constructor() { 
 
-    this.listaLibros.push(new Libro("1","java","pedro"));
-    this.listaLibros.push(new Libro("2","net","ana"));
-    this.listaLibros.push(new Libro("3","php","maria"));
-    this.listaLibros.push(new Libro("4","python","javier"));
+    this.listaLibros.push(new Libro("4","java","pedro"));
+    this.listaLibros.push(new Libro("5","net","ana"));
+    this.listaLibros.push(new Libro("6","php","maria"));
+    this.listaLibros.push(new Libro("7","python","javier"));
 
 
   }
@@ -21,4 +21,14 @@ export class LibrosService {
 
       return this.listaLibros;
   }
+  public borrarLibro(libro:Libro)  {
+
+    let libroborrar=this.listaLibros.filter(function(e) {
+      return e.isbn==libro.isbn;
+    })[0];
+
+    let posicion= this.listaLibros.indexOf(libroborrar);
+    this.listaLibros.splice(posicion,1);
+
+}
 }
