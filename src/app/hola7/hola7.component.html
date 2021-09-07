@@ -1,0 +1,26 @@
+<header>
+    <h1>Ejemplo servicio Rest</h1>
+</header>
+<main>
+    <table>
+        <thead>
+            <tr>
+                <th>ISBN</th>
+                <th>TÍTULO</th>
+                <th>AUTOR</th>
+                <th>ACCIONES</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let book of bookList">
+                <td>{{book.isbn}}</td>
+                <td>{{book.title}}</td>
+                <td>{{book.author}}</td>
+                <td>
+                    <input type="button" value="Borrar" (click)="deleteBook(book)">
+                    <!--<input type="button" value="Detalle" (click)="showBook(book.isbn)">-->
+                </td>
+            </tr>  
+        </tbody>
+    </table>
+</main>

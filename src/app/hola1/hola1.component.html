@@ -1,1 +1,5 @@
 <h1>¡Hola desde Angular! Soy {{name}}.</h1>
+<input type="number" id="number" value="{{count}}"/>
+<input type="button" id="increment" value="+" (click)="increase()"/>
+<input type="button" id="decrement" value="-" (click)="decrease()"/>
+<img [src]="image"/>

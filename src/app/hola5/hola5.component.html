@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta name="author" content="Germán Zunzunegui Rodríguez"/>
+        <meta name="description" content="Ejemplo de binding bidireccional en TypeScript"/>
+        <!--<link rel="stylesheet" type="text/css" href="/library/css/styles.css"/>
+        <link rel="shortcut icon" type="image/x-icon" href="/library/images/library.ico"/>-->
+        <title>TypeScript: Binding bidireccional</title>
+    </head>
+    <body>
+        <header>
+            <h1>Ejemplo de binding bidireccional</h1>
+        </header>
+        <main>
+            <form onsubmit="return false">
+                <fieldset>
+                    <legend>Datos del libro</legend>
+                    <div>
+                        <label for="isbn">ISBN:</label>
+                        <input type="text" id="isbn" name="isbn" [(ngModel)]="book.isbn"/>
+                    </div>
+                    <div>
+                        <label for="title">Título:</label>
+                        <input type="text" id="title" name="title" [(ngModel)]="book.title"/>
+                    </div>
+                    <div>
+                        <label for="author">Autor:</label>
+                        <input type="text" id="author" name="author" [(ngModel)]="book.author"/>
+                    </div>
+                </fieldset>
+            </form>
+            <div>
+                <h2>El libro:</h2>
+                <h3>[{{book.isbn}}] {{book.title}}, de {{book.author}}</h3>
+            </div>
+        </main>
+    </body>
+</html>
