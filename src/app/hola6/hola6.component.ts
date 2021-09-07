@@ -10,6 +10,7 @@ export class Hola6Component implements OnInit {
 
   listaLibros:Libro[]= [];
   libroNuevo:Libro={} as Libro;
+  libroSeleccionado:Libro={} as Libro;
   constructor() { 
 
     this.listaLibros.push(new Libro("1","java","pedro"));
@@ -20,7 +21,7 @@ export class Hola6Component implements OnInit {
 
 
   }
-  borrar(isbn:String):void {
+  borrar(isbn:string):void {
 
     let libroborrar=this.listaLibros.filter(function(e) {
       return e.isbn==isbn;
@@ -35,6 +36,15 @@ export class Hola6Component implements OnInit {
   insertar() {
     //clonar un objeto de forma rapida con JavaScript
     this.listaLibros.push({...this.libroNuevo});
+    this.libroNuevo={} as Libro;
+
+  }
+  detalle(isbn:string) {
+
+     this.libroSeleccionado=this.listaLibros.filter(function(e) {
+      return e.isbn==isbn;
+    })[0];
+
 
   }
 

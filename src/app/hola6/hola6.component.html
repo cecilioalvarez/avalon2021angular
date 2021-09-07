@@ -4,6 +4,7 @@
     <td>{{ libro.autor }}</td>
     <td>{{ libro.titulo }}</td>
     <td><input type="button" value="borrar" (click)="borrar(libro.isbn)" /></td>
+    <td><input type="button" value="detalle" (click)="detalle(libro.isbn)" /></td>
   </tr>
 </table>
 <form>
@@ -20,3 +21,9 @@
     <input type="button" value="insertar" (click)="insertar()" />
   </p>
 </form>
+<div>
+    <p>{{libroSeleccionado.isbn}}</p>
+    <p>{{libroSeleccionado.titulo}}</p>
+    <p>{{libroSeleccionado.autor}}</p>
+
+</div>
