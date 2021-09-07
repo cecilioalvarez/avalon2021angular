@@ -10,6 +10,7 @@ import { LibrosService } from '../libros.service';
 export class Hola7Component implements OnInit {
 
   listaLibros: Libro[] = [];
+  libroNuevo:Libro={} as Libro;
   constructor(public servicio: LibrosService) { }
 
   ngOnInit(): void {
@@ -18,5 +19,12 @@ export class Hola7Component implements OnInit {
 
   borrar(libro:Libro) {
     this.servicio.borrarLibro(libro);
+  }
+
+  insertar() {
+   
+    this.servicio.insertar({...this.libroNuevo});
+    this.libroNuevo={} as Libro;
+
   }
 }
