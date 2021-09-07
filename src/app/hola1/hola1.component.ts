@@ -36,12 +36,14 @@ export class Hola1Component implements OnInit {
     
   }
   avanza(){
+    if(this.contador>2) this.contador=0
     this.incrementar();
     this.paisaje='assets/'+this.listaImagenes[this.contador];
 
   }
 
   retrocede(){
+    if(this.contador<0) this.contador=0
     this.decrementar();
     this.paisaje='assets/'+this.listaImagenes[this.contador];
 

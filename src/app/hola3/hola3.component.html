@@ -1,0 +1,18 @@
+
+<table>
+    <tr>
+        <td>Indice</td>
+        <td>Nombre</td>
+        <td>Autor</td>
+        <td>Titulo</td>
+    </tr>
+    <tr  *ngFor="let libro of listaLibros; let indice=index; let impar=odd; let par=even" [ngClass]="{azul:par, verde:impar}">
+        <td>{{indice}}</td>
+        <td>{{libro.isbn}}</td>
+        <td>{{libro.autor}}</td>
+        <td>{{libro.titulo}}</td>
+    </tr>
+</table>
+    
+
+
