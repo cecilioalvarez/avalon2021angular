@@ -11,6 +11,18 @@ app.get('/libros', (req, res) => {
   res.send(listalibros)
 })
 
+app.delete('/libros/:isbn', (req, res) => {
+  
+  let libroborrar=this.listaLibros.filter(function(e) {
+    return e.isbn==req.params.isbn;
+  })[0];
+
+  let posicion= this.listaLibros.indexOf(libroborrar);
+  this.listaLibros.splice(posicion,1);
+
+
+})
+
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 })
