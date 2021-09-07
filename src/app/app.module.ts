@@ -9,6 +9,7 @@ import { Hola2Component } from './hola2/hola2.component';
 import { Hola3Component } from './hola3/hola3.component';
 import { Hola4Component } from './hola4/hola4.component';
 import { Hola5Component } from './hola5/hola5.component';
+import { Hola6Component } from './hola6/hola6.component';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { Hola5Component } from './hola5/hola5.component';
     Hola3Component,
     Hola4Component,
     Hola5Component,
+    Hola6Component,
 
   ],
   imports: [
