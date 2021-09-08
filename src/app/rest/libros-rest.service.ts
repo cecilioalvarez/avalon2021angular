@@ -19,4 +19,9 @@ export class LibrosRestService {
 
     return this.http.delete<Libro>(`http://localhost:8080/webapi/libros/${libro.isbn}`);
   }
+
+  insertar(libro:Libro):Observable<Libro> {
+
+    return this.http.post<Libro>(`http://localhost:8080/webapi/libros/${libro.isbn}`,libro);
+  }
 }
