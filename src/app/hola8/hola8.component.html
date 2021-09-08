@@ -23,9 +23,40 @@
               (click)="borrar(libro)"
             />
           </td>
+          <td>
+            <input
+              type="button"
+              class="btn btn-danger ml-auto"
+              value="detalle"
+              (click)="detalle(libro)"
+            />
+          </td>
           <!--<td><input type="button" value="detalle" (click)="detalle(libro.isbn)"></td>-->
         </tr>
       </table>
+
+      <section class="justify-content-center detalle">
+        <p class="col12 col-sm-12">Isbn: {{ libroDetalle.isbn }}</p>
+        <p class="col12 col-sm-12">Titulo: {{ libroDetalle.titulo }}</p>
+        <p class="col12 col-sm-12">Autor: {{ libroDetalle.autor }}</p>
+      </section>
+
+      <section class="justify-content-center">
+        <form action="">
+          <p class="col12 col-sm-12">
+            <input type="text" name="isbn" [(ngModel)]="libroNuevo.isbn" />
+          </p>
+          <p class="col12 col-sm-12">
+            <input type="text" name="titulo" [(ngModel)]="libroNuevo.titulo" />
+          </p>
+          <p class="col12 col-sm-12">
+            <input type="text" name="autor" [(ngModel)]="libroNuevo.autor" />
+          </p>
+          <p class="col12 col-sm-12">
+            <input type="button" value="insertar" (click)="insertar()" />
+          </p>
+        </form>
+      </section>
     </div>
   </div>
 </body>

@@ -1,4 +1,6 @@
-import { mergeMap } from 'rxjs/operators';
+
+
+import { mergeMap, map} from 'rxjs/operators';
 import { LibrosRestService } from './../rest/libros-rest.service';
 import { Component, OnInit } from '@angular/core';
 import { Libro } from '../libro';
@@ -12,6 +14,8 @@ import { Libro } from '../libro';
 export class Hola8Component implements OnInit {
 
   listaLibros: Libro[] = []
+  libroNuevo: Libro = {} as Libro
+  libroDetalle: Libro = {} as Libro 
 
   constructor(public servicio: LibrosRestService) { }
 
@@ -40,6 +44,35 @@ export class Hola8Component implements OnInit {
   borrar(libro: Libro){
     this.servicio.borrar(libro).pipe(mergeMap(e=>this.servicio.buscarTodos())).subscribe((libros)=>{
       this.listaLibros=libros;
+    })
+  }
+
+/* EL SIGUIENTE CODIGO ES IGUAL QUE EL ANTERIOR, PERO EL ANTERIOR ES MAS OPTIMO
+  borrar(libro:Libro){
+    this.servicio.borrar(libro).pipe(map(e=>this.servicio.buscarTodos())).subscribe((observable)=> {
+
+      observable.subscribe((libros)=> {
+
+                this.listaLibros=libros;
+      })
+    })
+
+  }  */  
+
+  insertar() {
+
+    this.servicio
+    .insertar(this.libroNuevo)
+    .pipe(mergeMap(e=>this.servicio.buscarTodos())).subscribe((libros)=> {
+
+      this.listaLibros=libros;
+    })
+
+  }
+
+  detalle(libro:Libro){
+    this.servicio.detalle(libro).subscribe((libros)=>{
+      this.libroDetalle = libros
     })
   }
 }
