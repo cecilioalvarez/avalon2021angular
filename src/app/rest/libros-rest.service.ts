@@ -22,6 +22,6 @@ export class LibrosRestService {
 
   insertar(libro:Libro):Observable<Libro> {
 
-    return this.http.post<Libro>(`http://localhost:8080/webapi/libros/${libro.isbn}`,libro);
+    return this.http.post<Libro>(`http://localhost:8080/webapi/libros`,libro);
   }
 }

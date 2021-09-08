@@ -13,7 +13,7 @@ export class Hola8Component implements OnInit {
 
   listaLibros: Libro[] = [];
 
-  libroNuevo!:Libro
+  libroNuevo:Libro={} as Libro
 
   constructor(public servicio:LibrosRestService) { }
 
