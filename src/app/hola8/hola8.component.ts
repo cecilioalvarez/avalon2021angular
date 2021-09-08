@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Libro } from '../libro';
 import { LibrosRestService } from '../rest/libros-rest.service';
-
+import { mergeMap } from "rxjs/operators";
 @Component({
   selector: 'app-hola8',
   templateUrl: './hola8.component.html',
@@ -15,28 +15,16 @@ export class Hola8Component implements OnInit {
 
   ngOnInit(): void {
 
-    this.servicio.buscarTodos().then((libros)=> {
+    this.servicio.buscarTodos().subscribe((libros)=> {
       this.listaLibros=libros;
-    }).catch(function(e){
-      console.log(e);
-    })
+    });
   }
 
   borrar(libro:Libro) {
-    
-    /*
-    this.servicio.borrar(libro).then(()=> {
+    //tengo que encadenar observables
+    this.servicio.borrar(libro).pipe(mergeMap(e=>this.servicio.buscarTodos())).subscribe((libros)=>{
 
-          this.servicio.buscarTodos().then((libros) =>{
-
-                this.listaLibros=libros;
-          })
-    });
-
-    */
-    
-    this.servicio.borrar(libro).then(()=>this.servicio.buscarTodos()).then((libros) => {
-      this.listaLibros=libros;       
+        this.listaLibros=libros;
     })
     
   }
