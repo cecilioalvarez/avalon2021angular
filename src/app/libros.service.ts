@@ -6,16 +6,20 @@ import { Libro } from './libro';
 })
 export class LibrosService {
 
-  listaLibros: Libro[] = []
+  listaLibros: Libro[] = [];
+
   constructor() {
-    this.listaLibros.push(new Libro("1", "java", "autor"), new Libro("2", "java2", "autor2"), new Libro("3", "java3", "autor3"),)
+
+    this.listaLibros.push(new Libro("4", "java", "pedro"));
+    this.listaLibros.push(new Libro("5", "net", "ana"));
+    this.listaLibros.push(new Libro("6", "php", "maria"));
+    this.listaLibros.push(new Libro("7", "python", "javier"));
 
   }
-
   public buscarTodos(): Libro[] {
-    return this.listaLibros
-  }
 
+    return this.listaLibros;
+  }
   public borrarLibro(libro: Libro) {
 
     let libroborrar = this.listaLibros.filter(function (e) {
@@ -26,15 +30,8 @@ export class LibrosService {
     this.listaLibros.splice(posicion, 1);
 
   }
-  public detalleLibro(libro: Libro):Libro {
-    let librodetalle = this.listaLibros.filter(function (e) {
-      return e.isbn == libro.isbn;
-    })[0];
-    return librodetalle
-  }
-  public insertarLibro(libro:Libro):void {
+
+  public insertar(libro:Libro):void {
     this.listaLibros.push(libro);
   }
-
-
 }
