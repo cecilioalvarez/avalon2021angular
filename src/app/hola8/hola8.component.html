@@ -1,9 +1,31 @@
-<table>
-    <tr *ngFor="let libro of listaLibros">
-        <td>{{libro.isbn}}</td>
-        <td>{{libro.titulo}}</td>
-        <td>{{libro.autor}}</td>
-        <td><input type="button" value="borrar" (click)="borrar(libro)"></td>
-        <!--<td><input type="button" value="detalle" (click)="detalle(libro.isbn)"></td>-->
-    </tr>
-</table>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="justify-content-center col-md-12">
+        <h1 class="text-center">Lista de libros</h1>
+      </div>
+
+      <table class="table justify-content-center">
+        <tr>
+          <th scope="col">Isbn</th>
+          <th scope="col">Titulo</th>
+          <th scope="col">Autor</th>
+        </tr>
+        <tr *ngFor="let libro of listaLibros">
+          <td>{{ libro.isbn }}</td>
+          <td>{{ libro.titulo }}</td>
+          <td>{{ libro.autor }}</td>
+          <td>
+            <input
+              type="button"
+              class="btn btn-danger ml-auto"
+              value="borrar"
+              (click)="borrar(libro)"
+            />
+          </td>
+          <!--<td><input type="button" value="detalle" (click)="detalle(libro.isbn)"></td>-->
+        </tr>
+      </table>
+    </div>
+  </div>
+</body>
