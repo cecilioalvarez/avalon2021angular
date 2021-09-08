@@ -16,7 +16,6 @@ export class Hola8Component implements OnInit {
   ngOnInit(): void {
 
     this.servicio.buscarTodos().then((libros)=> {
-
       this.listaLibros=libros;
     }).catch(function(e){
       console.log(e);
@@ -36,9 +35,8 @@ export class Hola8Component implements OnInit {
 
     */
     
-    this.servicio.borrar(libro).then(this.servicio.buscarTodos).then(() => {
-
-          console.log("finaliza");
+    this.servicio.borrar(libro).then(()=>this.servicio.buscarTodos()).then((libros) => {
+      this.listaLibros=libros;       
     })
     
   }
