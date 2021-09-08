@@ -1,15 +1,28 @@
- 
 const express = require('express')
-var cors=require("cors");
+var cors = require("cors");
 const app = express()
-app.use(cors())
+app.use(cors());
 const port = 8080
+var  listalibros=[];
+listalibros.push({isbn:"1",titulo:"java",autor:"juan"});
+listalibros.push({isbn:"2",titulo:"java2",autor:"juan2"});
 
-let listaLibros=[];
-listaLibros.push({isbn:"1",titulo:"java",autor:"juan"});
-listaLibros.push({isbn:"2",titulo:"php",autor:"maria"});
 app.get('/libros', (req, res) => {
-  res.send(listaLibros)
+  res.send(listalibros)
+})
+
+
+app.delete('/libros/:isbn', (req, res) => {
+  
+  let libroborrar=listalibros.filter(function(e) {
+    return e.isbn==req.params.isbn;
+  })[0];
+
+  let posicion= listalibros.indexOf(libroborrar);
+  listalibros.splice(posicion,1);
+  res.status(204).send();
+
+
 })
 
 app.listen(port, () => {

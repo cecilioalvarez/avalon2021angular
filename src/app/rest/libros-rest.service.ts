@@ -7,9 +7,15 @@ import { Libro } from '../libro';
 })
 export class LibrosRestService {
 
+  url:string="/webapi"
   constructor(public http:HttpClient) { }
 
   buscarTodos():Promise<Libro[]>{
-    return this.http.get<Libro[]>("http://localhost:8080/libros").toPromise();
+    return this.http.get<Libro[]>(`http://localhost:8080${this.url}/libros`).toPromise();
+    
+  }
+
+  borrar(libro: Libro):Promise<Libro>{
+    return this.http.delete<Libro>(`http://localhost:8080${this.url}/libros/${libro.isbn}`).toPromise(); 
   }
 }
