@@ -11,7 +11,12 @@ export class Hola7Component implements OnInit {
 
   listaLibros: Libro[] = [];
   libroNuevo:Libro={} as Libro;
-  constructor(public servicio: LibrosService) { }
+  // declarame una propiedad a nivel interno
+  // que sea servicio y ese servicio sea una instancia de librosservice
+  constructor(public servicio: LibrosService) { 
+
+
+  }
 
   ngOnInit(): void {
     this.listaLibros = this.servicio.buscarTodos();

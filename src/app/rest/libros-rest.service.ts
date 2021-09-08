@@ -11,7 +11,7 @@ export class LibrosRestService {
   }
 
   buscarTodos():Promise<Libro[]> {
-
+    console.log(this.http);
     return this.http.get<Libro[]>("http://localhost:8080/libros").toPromise();
   }
   borrar(libro:Libro):Promise<Libro> {
