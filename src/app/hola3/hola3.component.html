@@ -10,7 +10,7 @@
         <tr *ngFor="let book of booksList; let i = index; let impar = odd; let par = even" [ngClass] = "{azul: par, verde: impar}">
             <td>{{book.isbn}}</td>
             <td>{{book.title}}</td>
-            <td>{{book.author}}</td>
+            <td>{{book.author.name}}</td>
         </tr>  
     </tbody>
 </table>

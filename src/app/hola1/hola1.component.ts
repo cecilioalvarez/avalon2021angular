@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Book } from 'src/app/book';
+import { Author } from '../author';
 
     @Component({
         selector: 'app-hola1',
@@ -15,7 +16,7 @@ import { Book } from 'src/app/book';
     image:string;
 
     constructor() {
-        this.book = new Book("1234567890123", "Prueba", "Anónimo");
+        this.book = new Book("1234567890123", "Prueba", new Author("00000000t", "Anónimo", 17));
         this.image = "assets/flor.jpg";
     }
 

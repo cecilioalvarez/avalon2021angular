@@ -12,15 +12,45 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let book of bookList">
+            <tr *ngFor = "let book of bookList">
                 <td>{{book.isbn}}</td>
                 <td>{{book.title}}</td>
-                <td>{{book.author}}</td>
+                <td>{{book.author.name}}</td>
                 <td>
                     <input type="button" value="Borrar" (click)="deleteBook(book)">
-                    <!--<input type="button" value="Detalle" (click)="showBook(book.isbn)">-->
+                    <input type="button" value="Editar" (click)="editBook(book)">
                 </td>
             </tr>  
         </tbody>
     </table>
+    <div class="links">
+        <input *ngIf = "!editing" type="button" id="createBook" name="createBook" value="Añadir un libro" (click)="createBook()"/>
+    </div>
+    <form *ngIf = "showForm" id="createBookForm" name="createBookForm" onsubmit="return false">
+        <fieldset>
+            <legend>Datos del nuevo libro</legend>
+            <div>
+                <label for="isbn">ISBN:</label>
+                <input type="text" id="isbn" name="isbn" [(ngModel)]="newBook.isbn" [readonly] = "editing"/>
+            </div>
+            <div>
+                <label for="title">Título:</label>
+                <input type="text" id="title" name="title" [(ngModel)]="newBook.title"/>
+            </div>
+            <div>
+                <label for="author">Autor:</label>
+                <select name="author" id="author" [(ngModel)]="authorIdForNewBook">
+                    <option *ngFor = "let author of authorList" name="author" value="{{author.id}}">{{author.name}}</option>
+                </select>
+            </div>
+        </fieldset>
+        <div *ngIf = "editing; then editButton else createButton"></div>
+        <ng-template #createButton>
+            <input  type="button" id="insertBook" name="insertBook" value="Añadir" (click)="insertBook()"/>
+        </ng-template>
+        <ng-template #editButton>
+            <input type="button" id="editBook" name="editBook" value="Modificar" (click)="updateBook()"/>
+        </ng-template>
+        <input  type="button" id="cancel" name="cancel" value="Cancelar" (click)="cancel()"/>
+    </form>
 </main>

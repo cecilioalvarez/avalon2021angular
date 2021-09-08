@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Author } from '../author';
 import { Book } from '../book';
 
     @Component({
@@ -12,9 +13,9 @@ import { Book } from '../book';
 
     constructor() {
       this.booksList.push(
-        new Book("1234567890123", "Prueba", "Anónimo"), 
-        new Book("1234567890124", "Prueba2", "Federico García Lorca"), 
-        new Book("1234567890125", "Prueba3", "Almudena Grandes")
+        new Book("1234567890123", "Prueba", new Author("00000000t", "Anónimo", 17)), 
+        new Book("1234567890124", "Prueba2", new Author("11111111h", "Federico García Lorca", 20)), 
+        new Book("1234567890125", "Prueba3", new Author("22222222j", "Almudena Grandes", 30))
     );
     }
 
