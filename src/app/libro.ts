@@ -1,11 +1,11 @@
 export class Libro {
-    isbn: string=""
+   /* isbn: string=""
     titulo: string=""
-    autor: string = ""
+    autor: string = ""*/
 
-    constructor(isbn:string, titulo:string, autor:string){
-        this.isbn = isbn
+    constructor(public isbn:string,public titulo:string,public autor:string){
+        /*this.isbn = isbn
         this.titulo = titulo
-        this.autor = autor
+        this.autor = autor*/
     }
 }
