@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Libro } from '../libro';
 import { LibrosRestService } from '../rest/libros-rest.service';
 import { mergeMap } from "rxjs/operators";
-import { Subject } from 'rxjs';
 
 
 @Component({
@@ -15,18 +14,8 @@ export class Hola8Component implements OnInit {
   listaLibros: Libro[] = []
   libroSeleccionado : Libro ={} as Libro
   libroNuevo:Libro={} as Libro
-  editing: boolean = false;
-  filtroTitulo:string=""
-  teclaPulsada=new Subject<KeyboardEvent>();
-
-  constructor(public servicio:LibrosRestService) {
-
-    this.teclaPulsada.subscribe((e=>{
-      console.log(e);
-      
-    }))
-
-   }
+  
+  constructor(public servicio:LibrosRestService) { }
 
   ngOnInit(): void {
 
@@ -48,31 +37,24 @@ export class Hola8Component implements OnInit {
     })
   }
 
-    insertar():void {
+    insertar(){
       this.servicio.insertar(this.libroNuevo).pipe(mergeMap(e=>this.servicio.buscarTodos())).subscribe((libros)=>{
         this.listaLibros=libros;
       })
     }
 
-    detalle(libro:Libro):void{
+    detalle(libro:Libro){
       this.servicio.buscarUno(libro).subscribe((librobuscado)=>{
         this.libroSeleccionado=librobuscado;
       });
     }
 
-    actualizar(libro:Libro):void{
+    actualizar(libro:Libro){
       this.servicio.buscarUno(libro).subscribe((librobuscado)=>{
         this.libroNuevo=librobuscado;
       });
-      this.editing=true;
 
     }
-
-    botonActualizar():void{
-      
-    }
-
-    
 
 
 }
