@@ -12,6 +12,7 @@ import { Hola5Component } from './hola5/hola5.component';
 import { Hola6Component } from './hola6/hola6.component';
 import { Hola7Component } from './hola7/hola7.component';
 import { Hola8Component } from './hola8/hola8.component';
+import { ListaLibrosComponent } from './lista-libros/lista-libros.component';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { Hola8Component } from './hola8/hola8.component';
     Hola6Component,
     Hola7Component,
     Hola8Component,
+    ListaLibrosComponent,
 
   ],
   imports: [
