@@ -1,3 +1,6 @@
+<form>
+    <input type="text" name="filtroTitulo" [(ngModel)]="filtroTitulo" (keyup)="teclaPulsada.next($event)"/>
+</form>
 <table>
     <tr>
 
@@ -33,10 +36,16 @@
     <p>
         <input type="text" name="autor" [(ngModel)]="libroNuevo.autor" />
     </p>
-    <p>
-   
-        <input type="button" value="insertar" (click)="insertar()" />
-   
 
-    </p>
+    <div *ngIf="editing; then  editButton else  createButton"></div>
+    <ng-template #createButton>
+        <input type="button" value="insertar" (click)="insertar()" />
+
+    </ng-template>
+    <ng-template #editButton>
+        <input type="button" value="actualizar" (click)="botonActualizar()" />
+    </ng-template>
+
+
+
 </form>
