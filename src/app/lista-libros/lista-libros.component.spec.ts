@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Hola8Component } from './hola8.component';
+import { ListaLibrosComponent } from './lista-libros.component';
 
-describe('Hola8Component', () => {
-  let component: Hola8Component;
-  let fixture: ComponentFixture<Hola8Component>;
+describe('ListaLibrosComponent', () => {
+  let component: ListaLibrosComponent;
+  let fixture: ComponentFixture<ListaLibrosComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ Hola8Component ]
+      declarations: [ ListaLibrosComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(Hola8Component);
+    fixture = TestBed.createComponent(ListaLibrosComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,10 +1,13 @@
+<form>
+    <input type="text" name="filtroTitulo" [(ngModel)]="filtroTitulo" (keyup)="teclaPulsada.next($event)" />
+</form>
+
 <table>
     <tr *ngFor="let libro of listaLibros">
-        <td>{{ libro.isbn }}</td>
-        <td>{{ libro.autor }}</td>
-        <td>{{ libro.titulo }}</td>
+        <td>{{libro.isbn}}</td>
+        <td>{{libro.autor}}</td>
+        <td>{{libro.titulo}}</td>
         <td><input type="button" value="borrar" (click)="borrar(libro)" /></td>
-        <td><input type="button" value="detalle" (click)="detalle(libro)" /></td>
     </tr>
 </table>
 
@@ -22,8 +25,3 @@
         <input type="button" value="insertar" (click)="insertar()" />
     </p>
 </form>
-<div>
-    <p>{{libroSelect.isbn}}</p>
-    <p>{{libroSelect.autor}}</p>
-    <p>{{libroSelect.titulo}}</p>
-</div>
