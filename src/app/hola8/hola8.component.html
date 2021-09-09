@@ -11,6 +11,32 @@
         <td>{{libro.autor}}</td>
         <td>{{libro.titulo}}</td>
         <td><input type="button" value="borrar" (click)="borrar(libro)"></td>
-        
+        <td><input type="button" value="Detalle" (click)="detalle(libro)"></td>
+        <td><input type="button" value="Actualizar" (click)="actualizar(libro)"></td>
+
     </tr>
 </table>
+
+<div>
+    <p>{{libroSeleccionado.isbn}}</p>
+    <p>{{libroSeleccionado.titulo}}</p>
+    <p>{{libroSeleccionado.autor}}</p>
+</div>
+
+<form>
+    <p>
+        <input type="text" name="isbn" [(ngModel)]="libroNuevo.isbn" />
+    </p>
+    <p>
+        <input type="text" name="titulo" [(ngModel)]="libroNuevo.titulo" />
+    </p>
+    <p>
+        <input type="text" name="autor" [(ngModel)]="libroNuevo.autor" />
+    </p>
+    <p>
+   
+        <input type="button" value="insertar" (click)="insertar()" />
+   
+
+    </p>
+</form>

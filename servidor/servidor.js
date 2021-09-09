@@ -20,6 +20,7 @@ app.delete('/libros/:isbn', (req, res) => {
 
   let posicion= listalibros.indexOf(libroborrar);
   listalibros.splice(posicion,1);
+  //Enviar respuesta ok pero vacia
   res.status(204).send();
 
 
