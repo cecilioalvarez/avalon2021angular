@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Libro } from '../libro';
@@ -14,6 +14,11 @@ export class LibrosRestService {
   buscarTodos():Observable<Libro[]>{
     // return this.http.get<Libro[]>(`http://localhost:8080${this.url}/libros`).toPromise();
     return this.http.get<Libro[]>(`http://localhost:8080${this.url}/libros`);
+    
+  }
+  buscarPorTitulo(titulo:string):Observable<Libro[]>{
+    let parametros=new HttpParams().set('titulo',titulo);
+    return this.http.get<Libro[]>(`http://localhost:8080${this.url}/libros`,{params:parametros});
     
   }
 
