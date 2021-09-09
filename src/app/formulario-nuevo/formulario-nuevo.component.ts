@@ -12,9 +12,15 @@ import { LibrosRestService } from '../rest/libros-rest.service';
 export class FormularioNuevoComponent implements OnInit {
 
   libroNuevo:Libro={} as Libro
-  constructor(public servicio:LibrosRestService, public router:Router) { }
+  constructor(private servicio:LibrosRestService, private  router:Router) {
+
+    console.log("constructor1")
+
+   }
 
   ngOnInit(): void {
+
+    console.log("constructor2")
   }
 
 
@@ -22,7 +28,7 @@ export class FormularioNuevoComponent implements OnInit {
 
     this.servicio
     .insertar(this.libroNuevo)
-    .pipe(mergeMap(e=>this.servicio.buscarTodos())).subscribe(()=> {
+    .subscribe(()=> {
 
       this.router.navigate(['listalibros']);
 
