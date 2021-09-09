@@ -1,8 +1,9 @@
 <table>
     <tr *ngFor="let libro of listaLibros">
         <td>{{libro.isbn}}</td>
-        <td>{{libro.autor}}</td>
+        <td>{{libro.autor | uppercase}}</td>
         <td>{{libro.titulo}}</td>
+        <td>{{100|number :'2.2.3'}}</td>
         <td><input type="button" value="borrar" (click)="borrar(libro)" /></td>
         <td><input type="button" value="detalle" (click)="detalle(libro)" /></td>
     </tr>
