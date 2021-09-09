@@ -31,4 +31,8 @@ export class LibrosRestService {
 
     return this.http.post<Libro>(`${environment.APIEndpoint}/libros`,libro);
   }
+  buscarUno(isbn:string):Observable<Libro> {
+
+    return this.http.get<Libro>(`${environment.APIEndpoint}/libros/${isbn}`);
+  }
 }

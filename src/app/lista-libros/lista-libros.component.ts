@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { mergeMap } from 'rxjs/operators';
 import { Libro } from '../libro';
 import { LibrosRestService } from '../rest/libros-rest.service';
@@ -10,7 +11,7 @@ import { LibrosRestService } from '../rest/libros-rest.service';
 })
 export class ListaLibrosComponent implements OnInit {
 
-  constructor(public servicio:LibrosRestService) { }
+  constructor(private servicio:LibrosRestService,private router:Router) { }
   listaLibros:Libro[]=[];
   
   ngOnInit(): void {
@@ -26,6 +27,13 @@ export class ListaLibrosComponent implements OnInit {
 
         this.listaLibros=libros;
     })
+   
+  
+  }
+
+  detalle(libro:Libro) {
+   
+    this.router.navigate(["detalle",libro.isbn]);
    
   
   }
