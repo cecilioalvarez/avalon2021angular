@@ -14,6 +14,10 @@ export class ListaLibrosComponent implements OnInit {
   listaLibros:Libro[]=[];
   
   ngOnInit(): void {
+
+    this.servicio.buscarTodos().subscribe((libros)=> {
+      this.listaLibros=libros;
+    });
   }
 
   borrar(libro:Libro) {
