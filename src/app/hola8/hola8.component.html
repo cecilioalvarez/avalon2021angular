@@ -1,3 +1,8 @@
+<form>
+<input type="text" name="filtroTitulo" [(ngModel)]="filtroTitulo" 
+(keyup)="teclaPulsada.next($event)"/>
+</form>
+
 <table>
     <tr *ngFor="let libro of listaLibros">
       <td>{{libro.isbn}}</td>
