@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { map, mergeMap } from 'rxjs/operators';
 import { Libro } from '../libro';
 import { LibrosRestService } from '../rest/libros-rest.service';
 
@@ -18,7 +19,7 @@ export class DetalleComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    /*
     this.route.paramMap.subscribe((parametros) => {
       let isbn = parametros.get("isbn");
 
@@ -28,6 +29,18 @@ export class DetalleComponent implements OnInit {
           this.libro = libro;
 
         })
+
+    })*/
+
+    this.route.paramMap.pipe(map((parametros)=> {
+          return parametros.get("isbn");
+    })).pipe(mergeMap((parametro:string|null)=> {
+          if (parametro!=null)
+          return this.servicio.buscarUno(parametro);
+          else return this.servicio.buscarUno("0");
+    })).subscribe((parametro:Libro)=> {
+       
+      this.libro=parametro;
 
     })
   }
