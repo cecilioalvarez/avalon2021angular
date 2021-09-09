@@ -4,6 +4,7 @@ import { mergeMap, map} from 'rxjs/operators';
 import { LibrosRestService } from './../rest/libros-rest.service';
 import { Component, OnInit } from '@angular/core';
 import { Libro } from '../libro';
+import { Subject } from 'rxjs';
 
 
 @Component({
@@ -16,8 +17,22 @@ export class Hola8Component implements OnInit {
   listaLibros: Libro[] = []
   libroNuevo: Libro = {} as Libro
   libroDetalle: Libro = {} as Libro 
+  filtroTitulo: string = ""
+  teclaPulsada = new Subject<KeyboardEvent>()
 
-  constructor(public servicio: LibrosRestService) { }
+  constructor(public servicio: LibrosRestService) {
+
+    //Recogemos el dato que escribimos en el formulario y lo sacamos por consola.
+    this.teclaPulsada.pipe(map((event:any)=>{
+      return event.target.value;
+    //Pasamos el datos recogido en el formulario al servicio
+    })).pipe(mergeMap((texto: string)=> {
+      return this.servicio.buscarPorTitulo(texto);
+    })).subscribe((libros)=>{
+      this.listaLibros = libros;
+    })
+
+   }
 
   ngOnInit(): void {/*  HECHO CON PROMISE
       this.servicio.buscarTodos().then((libros)=>{

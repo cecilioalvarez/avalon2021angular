@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Libro } from '../libro';
 import { Observable } from 'rxjs';
 @Injectable({
@@ -21,6 +21,11 @@ export class LibrosRestService {
     return this.http.get<Libro[]>("http://localhost:8080/webapi/libros");
   }
 
+  buscarPorTitulo(titulo:string):Observable<Libro[]> {
+    let parametros = new HttpParams().set('titulo', titulo)
+    return this.http.get<Libro[]>("http://localhost:8080/webapi/libros", {params: parametros});
+  }
+
   borrar(libro:Libro):Observable<Libro> {
     return this.http.delete<Libro>(`http://localhost:8080/webapi/libros/${libro.isbn}`);
   }
@@ -32,4 +37,6 @@ export class LibrosRestService {
   detalle(libro:Libro):Observable<Libro>{
     return this.http.get<Libro>(`http://localhost:8080/webapi/libros/${libro.isbn}`);
   }
+
+
 }

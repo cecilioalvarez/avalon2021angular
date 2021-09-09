@@ -5,6 +5,10 @@
         <h1 class="text-center">Lista de libros</h1>
       </div>
 
+      <form>
+        <input type="text" name="filtroTitulo" [(ngModel)]="filtroTitulo" (keyup)="teclaPulsada.next($event)">
+      </form>
+
       <table class="table justify-content-center">
         <tr>
           <th scope="col">Isbn</th>
