@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Libro } from '../libro';
 import { LibrosRestService } from '../rest/libros-rest.service';
 import { mergeMap,map } from "rxjs/operators";
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 @Component({
   selector: 'app-hola8',
   templateUrl: './hola8.component.html',
@@ -12,10 +12,29 @@ export class Hola8Component implements OnInit {
 
 
   listaLibros: Libro[] = [];
+  filtroTitulo:string=""
+  teclaPulsada= new Subject<KeyboardEvent>();
 
   libroNuevo:Libro={} as Libro
 
-  constructor(public servicio:LibrosRestService) { }
+  
+
+
+  constructor(public servicio:LibrosRestService) {
+
+    this.teclaPulsada.pipe(map((event:any)=> {
+
+      return event.target.value;
+
+    })).pipe(mergeMap((texto:string)=> {
+      
+      return this.servicio.buscarPorTitulo(texto);
+    })).subscribe((libros)=> {
+
+        this.listaLibros=libros;
+    })
+
+   }
 
   ngOnInit(): void {
 
