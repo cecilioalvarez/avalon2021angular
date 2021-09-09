@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
 import { map, mergeMap } from 'rxjs/operators';
 import { Libro } from '../libro';
 import { LibrosRestService } from '../rest/libros-rest.service';
@@ -37,7 +38,7 @@ export class DetalleComponent implements OnInit {
     })).pipe(mergeMap((parametro:string|null)=> {
           if (parametro!=null)
           return this.servicio.buscarUno(parametro);
-          else return this.servicio.buscarUno("0");
+          else return new Observable<Libro>()
     })).subscribe((parametro:Libro)=> {
        
       this.libro=parametro;
