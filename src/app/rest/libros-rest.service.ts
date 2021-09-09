@@ -31,6 +31,10 @@ export class LibrosRestService {
     return this.http.get<Libro>(`http://localhost:8080${this.url}/libros/${libro.isbn}`);
   }
 
+  actualizar(libro:Libro):Observable<Libro>{
+    return this.http.put<Libro>(`http://localhost:8080${this.url}/libros/${libro.isbn}`,libro);
+  }
+
   
 
 }
