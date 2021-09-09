@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { mergeMap } from 'rxjs/operators';
 import { Libro } from '../libro';
 import { LibrosRestService } from '../rest/libros-rest.service';
@@ -11,7 +12,7 @@ import { LibrosRestService } from '../rest/libros-rest.service';
 export class FormularioNuevoComponent implements OnInit {
 
   libroNuevo:Libro={} as Libro
-  constructor(public servicio:LibrosRestService) { }
+  constructor(public servicio:LibrosRestService, public router:Router) { }
 
   ngOnInit(): void {
   }
@@ -21,9 +22,10 @@ export class FormularioNuevoComponent implements OnInit {
 
     this.servicio
     .insertar(this.libroNuevo)
-    .pipe(mergeMap(e=>this.servicio.buscarTodos())).subscribe((libros)=> {
+    .pipe(mergeMap(e=>this.servicio.buscarTodos())).subscribe(()=> {
 
-     
+      this.router.navigate(['listalibros']);
+
     })
 
     
