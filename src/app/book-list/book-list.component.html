@@ -1,0 +1,29 @@
+<header>
+    <h1>LISTADO DE LIBROS</h1>
+</header>
+<main>
+    <table>
+        <thead>
+            <tr>
+                <th>ISBN</th>
+                <th>TÍTULO</th>
+                <th>AUTOR</th>
+                <th>ACCIONES</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor = "let book of bookList">
+                <td>{{book.isbn | uppercase}}</td>
+                <td>{{book.title}}</td>
+                <td>{{book.author.name}}</td>
+                <td>
+                    <input type="button" value="Borrar" (click)="deleteBook(book)">
+                    <input type="button" value="Editar" (click)="redirectToEditBook(book)">
+                </td>
+            </tr>  
+        </tbody>
+    </table>
+    <div class="links">
+        <input type="button" id="createBook" name="createBook" value="Añadir un libro" (click)="redirectToCreateBook()"/>
+    </div>
+</main>

@@ -2,6 +2,15 @@
     <h1>Ejemplo servicio Rest</h1>
 </header>
 <main>
+    <form id="filterBooksForm" name="filterBooksForm" onsubmit="return false">
+        <fieldset>
+            <legend>Búsqueda de libros</legend>
+            <div>
+                <label for="titleFilter">Título:</label>
+                <input type="text" id="titleFilter" name="titleFilter" [(ngModel)]="titleFilter" (keyup)="keyUp.next($event)"/>
+            </div>
+        </fieldset>
+    </form>
     <table>
         <thead>
             <tr>

@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Author } from '../author';
 import { Book } from '../book';
 import { LibraryRestService } from '../rest/library-rest.service';
-import { mergeMap } from "rxjs/operators";
+import { map, mergeMap } from "rxjs/operators";
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-hola7',
@@ -18,8 +19,15 @@ export class Hola7Component implements OnInit {
     textForAddEditButton: string = "Añadir";
     editing: boolean = false;
     showForm = false;
+    titleFilter = "";
+    keyUp = new Subject<KeyboardEvent>();
 
     constructor(public libraryRestService: LibraryRestService) {
+        this.keyUp.pipe(map((event: any)=> {
+            return event.target.value;
+          })).pipe(mergeMap((title: string) => {
+                return this.libraryRestService.getBooksByTitleStart(title);
+          })).subscribe((books) => this.bookList = books);
     }
 
     ngOnInit(): void {
@@ -78,5 +86,9 @@ export class Hola7Component implements OnInit {
     cancel(): void {
         this.showForm = false;
         this.editing = false;
+    }
+
+    filterBooks(): void {
+        this.libraryRestService.getBooksByTitleStart(this.titleFilter).subscribe((books) => this.bookList = books);
     }
 }

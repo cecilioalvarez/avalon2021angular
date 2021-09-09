@@ -1,0 +1,29 @@
+<header>
+    <h1>EDICIÓN DE UN LIBRO</h1>
+</header>
+<main>
+    <form id="updateBookForm" name="updateBookForm" onsubmit="return false">
+        <fieldset>
+            <legend>Datos del libro a editar</legend>
+            <div>
+                <label for="isbn">ISBN:</label>
+                <input type="text" id="isbn" name="isbn" [(ngModel)]="bookToEdit.isbn" readonly/>
+            </div>
+            <div>
+                <label for="title">Título:</label>
+                <input type="text" id="title" name="title" [(ngModel)]="bookToEdit.title" />
+            </div>
+            <div>
+                <label for="author">Autor:</label>
+                <select name="author" id="author" [(ngModel)]="authorIdForBookToEdit">
+                    <option *ngFor="let author of authorList" name="author" value="{{author.id}}">{{author.name}}
+                    </option>
+                </select>
+            </div>
+        </fieldset>
+        <input type="button" id="updateBook" name="updateBook" value="Modificar" (click)="updateBook()" />
+    </form>
+    <div class="links">
+        <input type="button" id="bookList" name="bookList" value="Volver al listado" (click)="redirectToBookList()"/>
+    </div>
+</main>

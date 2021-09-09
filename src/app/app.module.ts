@@ -10,6 +10,9 @@ import { Hola5Component } from './hola5/hola5.component';
 import { Hola6Component } from './hola6/hola6.component';
 import { HttpClientModule } from '@angular/common/http';
 import { Hola7Component } from './hola7/hola7.component';
+import { BookListComponent } from './book-list/book-list.component';
+import { CreateBookComponent } from './create-book/create-book.component';
+import { EditBookComponent } from './edit-book/edit-book.component';
 
 
 @NgModule({
@@ -19,7 +22,10 @@ import { Hola7Component } from './hola7/hola7.component';
     Hola3Component,
     Hola5Component,
     Hola6Component,
-    Hola7Component
+    Hola7Component,
+    BookListComponent,
+    CreateBookComponent,
+    EditBookComponent
   ],
   imports: [
     BrowserModule,
