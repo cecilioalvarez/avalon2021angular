@@ -1,4 +1,5 @@
 <table>
+<<<<<<< HEAD
     <tr *ngFor="let libro of listaLibros;let indice=index; let impar=odd;
 let par=even" [ngClass]="{azul:par,verde:impar}">
         <td>{{indice}}</td>
@@ -6,4 +7,14 @@ let par=even" [ngClass]="{azul:par,verde:impar}">
         <td> {{libro.titulo}}</td>
         <td> {{libro.autor}}</td>
     </tr>
+=======
+<tr *ngFor="let libro of listaLibros;let indice=index; let impar=odd;
+let par=even" [ngClass]="{azul:par,verde:impar}">
+
+    <td>{{indice}}</td>
+    <td>{{libro.isbn}}</td>
+    <td>{{libro.autor}}</td>
+    <td>{{libro.titulo}}</td>
+</tr>
+>>>>>>> 0355d8051e31fe9866436f3406b0f1da891d306c
 </table>

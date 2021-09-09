@@ -19,4 +19,9 @@ export class Hola3Component implements OnInit {
 
   ngOnInit(): void {
   }
+<<<<<<< HEAD
 }
+=======
+
+}
+>>>>>>> 0355d8051e31fe9866436f3406b0f1da891d306c

@@ -20,4 +20,8 @@ export class Hola4Component implements OnInit {
     this.mostrar=false;
   }
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 0355d8051e31fe9866436f3406b0f1da891d306c
