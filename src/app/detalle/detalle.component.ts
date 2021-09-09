@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { map, mergeMap } from 'rxjs/operators';
 import { Libro } from '../libro';
 import { LibrosRestService } from '../rest/libros-rest.service';
-
+import {Location} from '@angular/common';
 @Component({
   selector: 'app-detalle',
   templateUrl: './detalle.component.html',
@@ -13,7 +13,9 @@ import { LibrosRestService } from '../rest/libros-rest.service';
 export class DetalleComponent implements OnInit {
 
   libro: Libro | undefined;
-  constructor(private servicio: LibrosRestService, private route: ActivatedRoute) {
+  constructor(private servicio: LibrosRestService, 
+    private route: ActivatedRoute,
+     private location:Location) {
 
 
 
@@ -44,6 +46,9 @@ export class DetalleComponent implements OnInit {
       this.libro=parametro;
 
     })
+  }
+  volver() {
+    this.location.back();
   }
 
 }
