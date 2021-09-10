@@ -13,9 +13,9 @@ export class C2Component implements OnInit {
   ngOnInit(): void {
   }
 
-  mensajeAlerta() {
+  mensajeAlerta(evento:any) {
 
-    alert("hola");
+   alert(evento);
   }
 
 }
