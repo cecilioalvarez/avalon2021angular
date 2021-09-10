@@ -15,6 +15,7 @@ import { Hola8Component } from './hola8/hola8.component';
 import { ListaLibrosComponent } from './lista-libros/lista-libros.component';
 import { FormularioNuevoComponent } from './formulario-nuevo/formulario-nuevo.component';
 import { DetalleComponent } from './detalle/detalle.component';
+import { C1Component } from './c1/c1.component';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { DetalleComponent } from './detalle/detalle.component';
     ListaLibrosComponent,
     FormularioNuevoComponent,
     DetalleComponent,
+    C1Component,
 
   ],
   imports: [
