@@ -19,8 +19,7 @@ describe('C1Component', () => {
     component = fixture.componentInstance;
     component.listaPersonas.push(new Persona("pedro",20));
     component.listaPersonas.push(new Persona("ana",50));
-    component.listaPersonas.push(new Persona("david",40));
-    component.listaPersonas.push(new Persona("maria",10));
+  
     fixture.detectChanges();
   });
 
@@ -66,9 +65,13 @@ describe('C1Component', () => {
 
   it('test de suma edades en persona', () => {
   
-    let total=component.sumarEdades(component.listaPersonas);
+    let nuevaLista:Persona[]=[];
+    nuevaLista.push(new Persona("pedro",20));
+    nuevaLista.push(new Persona("ana",50));
+    nuevaLista.push(new Persona("david",40));
+    nuevaLista.push(new Persona("maria",10));
 
-   
+    let total=component.sumarEdades(nuevaLista);
     expect(total).toBe(120);
   });
 
