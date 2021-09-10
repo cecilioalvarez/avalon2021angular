@@ -1,0 +1,8 @@
+<div>
+    <p>{{libroSeleccionado.isbn}}</p>
+    <p>{{libroSeleccionado.titulo | uppercase}}</p>
+    <p>{{libroSeleccionado.autor}}</p>
+</div>
+<a [routerLink]="['/listalibros']">Ir al listado</a>
+<input type="button" value="Volver" (click)="volver()">
+

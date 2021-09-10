@@ -1,0 +1,19 @@
+<table>
+    <tr>
+
+        <td>Nombre</td>
+        <td>Autor</td>
+        <td>Titulo</td>
+    </tr>
+    <tr *ngFor="let libro of listaLibros">
+
+        <td>{{libro.isbn}}</td>
+        <td>{{libro.autor}}</td>
+        <td>{{libro.titulo}}</td>
+        <td><input type="button" value="borrar" (click)="borrar(libro)"></td>
+        <td><input type="button" value="Detalle" (click)="detalle(libro)"></td>
+        <!-- <td><input type="button" value="Actualizar" (click)="actualizar(libro)"></td> -->
+
+    </tr>
+</table>
+<a [routerLink]="['/formularionuevo']">Ir a nuevo</a>

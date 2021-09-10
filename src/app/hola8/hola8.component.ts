@@ -24,7 +24,7 @@ export class Hola8Component implements OnInit {
     })).pipe(mergeMap((texto:string)=>{
       return this.servicio.buscarPorTitulo(texto);
     })).subscribe((libros)=>{
-      console.log(libros);
+      this.listaLibros=libros
       
     })
    }
@@ -56,13 +56,13 @@ export class Hola8Component implements OnInit {
     }
 
     detalle(libro:Libro){
-      this.servicio.buscarUno(libro).subscribe((librobuscado)=>{
+      this.servicio.buscarUno(libro.isbn).subscribe((librobuscado)=>{
         this.libroSeleccionado=librobuscado;
       });
     }
 
     actualizar(libro:Libro){
-      this.servicio.buscarUno(libro).subscribe((librobuscado)=>{
+      this.servicio.buscarUno(libro.isbn).subscribe((librobuscado)=>{
         this.libroNuevo=librobuscado;
       });
 
