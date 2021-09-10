@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 
 import { LibrosRestService } from './libros-rest.service';
-
+/*
 describe('LibrosRestService', () => {
   let service: LibrosRestService;
 
@@ -13,4 +13,6 @@ describe('LibrosRestService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+  
 });
+*/

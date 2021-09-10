@@ -16,6 +16,10 @@ import { Hola8Component } from './hola8/hola8.component';
 import { ListaLibrosComponent } from './lista-libros/lista-libros.component';
 import { FormularioNuevoComponent } from './formulario-nuevo/formulario-nuevo.component';
 import { DetalleComponent } from './detalle/detalle.component';
+import { C1Component } from './c1/c1.component';
+import { C2Component } from './c2/c2.component';
+import { HijoComponent } from './hijo/hijo.component';
+
 
 @NgModule({
   declarations: [
@@ -29,7 +33,11 @@ import { DetalleComponent } from './detalle/detalle.component';
     Hola8Component,
     ListaLibrosComponent,
     FormularioNuevoComponent,
-    DetalleComponent
+    DetalleComponent,
+    C1Component,
+    C2Component,
+    HijoComponent
+   
   ],
   imports: [
     BrowserModule,
