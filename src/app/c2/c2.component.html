@@ -1,2 +1,2 @@
 <p>{{mensaje}}</p>
-<app-hijo></app-hijo>
+<app-hijo [mensajeExterno]="mensajeHijo" (eventoMensaje)="mensajeAlerta()"></app-hijo>
